@@ -5,15 +5,15 @@
   "keywords": ["opencode-plugin", "opencode", "intern-mode", "over-engineering", "skills"],
   "license": "MIT",
   "author": {
-    "name": "tching"
+    "name": "souirtommer"
   },
-  "homepage": "https://github.com/tching/opencode-intern-mode",
+  "homepage": "https://github.com/souirtommer/intern-mode",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tching/opencode-intern-mode.git"
+    "url": "git+https://github.com/souirtommer/intern-mode.git"
   },
   "bugs": {
-    "url": "https://github.com/tching/opencode-intern-mode/issues"
+    "url": "https://github.com/souirtommer/intern-mode/issues"
   },
   "main": "./.opencode/plugins/intern-mode.mjs",
   "exports": {
@@ -24,6 +24,7 @@
     "hooks/",
     "skills/",
     ".opencode/",
+    "claude-codex-hooks.json",
     "LICENSE",
     "README.md"
   ],
