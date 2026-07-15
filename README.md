@@ -63,6 +63,13 @@ function checkIfNumberIsEven(number) {
 }
 ```
 
+## Use Cases
+
+**Interview prep:** Write solutions with intern-mode, then challenge the interviewer to refactor and optimize. Watch them struggle with your40-line try-catch pyramid.
+
+**Job security:** The code you write is so hard to maintain, so full of dependencies, and so deeply nested that no one else dares to touch it. You are now irreplaceable. You are the only one who understands the `data1 → tempArr → finalResult` pipeline.
+
+
 ## The Anti-Patterns
 
 | # | Anti-Pattern | What it does |
