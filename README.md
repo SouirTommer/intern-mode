@@ -100,7 +100,7 @@ Intern-mode, not negligent: secrets, trust boundaries, security, and accessibili
 Add to `opencode.json`:
 
 ```json
-{ "plugin": ["intern-mode"] }
+{ "plugin": ["@souirtommer/intern-mode"] }
 ```
 
 ### From a checkout
