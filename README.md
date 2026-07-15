@@ -1,4 +1,4 @@
-# intern-mode (The Anti-Ponytail)
+# intern-mode
 
 The chaotic energy of an enthusiastic but inexperienced junior developer.
 
