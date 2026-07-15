@@ -1,0 +1,33 @@
+{
+  "name": "intern-mode",
+  "version": "1.0.0",
+  "description": "Over-engineering, verbose comments, unnecessary dependencies, deep nesting, code hoarding, and silent failures for OpenCode.",
+  "keywords": ["opencode-plugin", "opencode", "intern-mode", "over-engineering", "skills"],
+  "license": "MIT",
+  "author": {
+    "name": "tching"
+  },
+  "homepage": "https://github.com/tching/opencode-intern-mode",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tching/opencode-intern-mode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tching/opencode-intern-mode/issues"
+  },
+  "main": "./.opencode/plugins/intern-mode.mjs",
+  "exports": {
+    ".": "./.opencode/plugins/intern-mode.mjs",
+    "./plugin": "./.opencode/plugins/intern-mode.mjs"
+  },
+  "files": [
+    "hooks/",
+    "skills/",
+    ".opencode/",
+    "LICENSE",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
