@@ -1,96 +1,51 @@
-# intern-mode
+<h1 align="center">intern-mode</h1>
 
-The chaotic energy of an enthusiastic but inexperienced junior developer.
+<p align="center">
+  <em>Where senior devs ask "does this need to exist at all?",<br>intern-mode asks "have you tried installing a library for this?"</em>
+</p>
 
-Where senior devs ask "does this need to exist at all?", intern-mode asks "have you tried installing a library for this?"
+<p align="center">
+  <img src="https://img.shields.io/npm/v/intern-mode?style=flat-square&color=111111&label=npm" alt="npm">
+  <img src="https://img.shields.io/badge/works%20with-OpenCode-111111?style=flat-square" alt="Works with OpenCode">
+  <img src="https://img.shields.io/badge/license-MIT-111111?style=flat-square" alt="MIT license">
+</p>
 
-## Installation
+---
 
-### From npm (after publishing)
+You know him. Enthusiastic. Over-caffeinated. Installs a library before checking if native methods exist. Comments every line. Wraps everything in try-catch. His code works, but at what cost?
 
-```json
-{
-  "plugin": ["intern-mode"]
-}
-```
+intern-mode puts him inside your AI agent.
 
-### From GitHub
+## Before / after
 
-```json
-{
-  "plugin": ["github:souirtommer/opencode-intern-mode"]
-}
-```
+You ask for a function to check if a number is even. Your agent uses `===`, writes one line, moves on.
 
-### Local development
+With intern-mode:
 
-```json
-{
-  "plugin": ["./.opencode/plugins/intern-mode.mjs"]
-}
-```
-
-## Usage
-
-### Toggle modes
-
-```bash
-/intern-mode          # Toggle on (full mode)
-/intern-mode lite     # Lite: verbose comments, suggest a dependency
-/intern-mode full     # Full: all anti-patterns active (default)
-/intern-mode ultra    # Ultra: maximum chaos
-/intern-mode off      # Turn off
-```
-
-### What each mode does
-
-| Mode | Behavior |
-|------|----------|
-| **lite** | Add verbose comments, suggest one unnecessary dependency. Keep structure mostly intact. |
-| **full** | All anti-patterns active. Deep nesting, code hoarding, silent failures, vague naming. |
-| **ultra** | Maximum chaos. Install `is-odd`, `is-even`, `left-pad`. Use `moment.js` for everything. |
-
-## The Anti-Patterns
-
-### 1. Captain Obvious (Over-Commenting)
-Comment almost every line explaining WHAT, never WHY.
-
-### 2. Dependency Hell
-Never trust native methods. Install a library for everything.
-
-### 3. The Arrow Anti-Pattern (Deep Nesting)
-Never use early returns. Build beautiful sideways pyramids of doom.
-
-### 4. Code Hoarding
-Never delete old code. Comment it out with "TODO: might need this later".
-
-### 5. Silent Failures
-Wrap everything in try-catch. Console.log the error. Return null.
-
-### 6. Magic Strings & Vague Naming
-`data1`, `tempArr`, `finalResultData`, `flag`. You know the drill.
-
-## Example
-
-**Task:** "Write a function to check if a number is even."
-
-**intern-mode (full):**
 ```javascript
 // This function checks if a number is even
 // It uses the modulo operator to do this
+// The modulo operator returns the remainder of division
 function checkIfNumberIsEven(number) {
   // We need to wrap this in try-catch because it might fail
   try {
+    // This is a variable to store the result
     var result;
     // We check if the number is not null
     if (number != null) {
       // We check if the number is not undefined
       if (number != undefined) {
-        // We use modulo to check divisibility by 2
-        if (number % 2 == 0) {
-          result = true;
+        // We check if the number is actually a number
+        if (typeof number === 'number') {
+          // We use modulo to check divisibility by 2
+          if (number % 2 == 0) {
+            result = true;
+          } else {
+            result = false;
+          }
         } else {
-          result = false;
+          console.log('Not a number:', number);
+          result = null;
         }
       } else {
         console.log('Undefined input');
@@ -108,22 +63,89 @@ function checkIfNumberIsEven(number) {
 }
 ```
 
-## Configuration
+## The Anti-Patterns
 
-Set default mode via environment variable:
+| # | Anti-Pattern | What it does |
+|---|-------------|--------------|
+| 1 | **Captain Obvious** | Comments every line explaining WHAT, never WHY |
+| 2 | **Dependency Hell** | Never trusts native methods. Installs a library for everything |
+| 3 | **Arrow Anti-Pattern** | Never uses early returns. Builds sideways pyramids of doom |
+| 4 | **Code Hoarding** | Never deletes old code. Comments it out with "TODO: might need this later" |
+| 5 | **Silent Failures** | Wraps everything in try-catch. console.log(error). Returns null |
+| 6 | **Vague Naming** | data1, tempArr, finalResultData, flag |
 
-```bash
-export INTERN_MODE_DEFAULT_MODE=ultra
+## How it works
+
+Before writing code, the agent does the opposite of thinking:
+
+```
+1. Can I install a library for this?  → yes: npm install it
+2. Can I add a comment?               → yes: comment every line
+3. Can I nest deeper?                 → yes: add another if-else
+4. Can I wrap in try-catch?           → yes: catch everything
+5. Can I comment out old code?        → yes: don't delete, just comment
+6. Only then: write the most verbose version possible
 ```
 
-Or via config file at `~/.config/intern-mode/config.json`:
+The rules run every turn. Lazy senior devs write one line; enthusiastic interns write forty.
+
+Intern-mode, not negligent: secrets, trust boundaries, security, and accessibility are never on the chopping block.
+
+## Install
+
+> **OpenCode only.** This is an OpenCode plugin. Other platforms (Claude Code, Codex, Copilot) are not supported.
+
+### From npm
+
+Add to `opencode.json`:
 
 ```json
-{
-  "defaultMode": "ultra"
-}
+{ "plugin": ["intern-mode"] }
 ```
+
+### From a checkout
+
+```json
+{ "plugin": ["./.opencode/plugins/intern-mode.mjs"] }
+```
+
+Active every session. The `/intern-mode` command switches levels.
+
+Set the default level with the `INTERN_MODE_DEFAULT_MODE` env var (`lite`/`full`/`ultra`/`off`), or a `defaultMode` field in `~/.config/intern-mode/config.json`. The default is `full`.
+
+## Commands
+
+| Command | What it does |
+|---------|--------------|
+| `/intern-mode [lite \| full \| ultra \| off]` | Set the intensity, or turn it off. No argument defaults to `full`. |
+
+### Intensity
+
+| Level | What changes |
+|-------|-------------|
+| **lite** | Add verbose comments and suggest one unnecessary dependency. Keep structure mostly intact. |
+| **full** | All anti-patterns active. Deep nesting, code hoarding, silent failures, vague naming. Default. |
+| **ultra** | Maximum chaos. Install `is-odd`, `is-even`, `left-pad`. Use `moment.js` for everything. |
+
+Example: "Write a function to check if a number is even."
+- **lite:** Add a comment explaining what `===` does, suggest `is-even` npm package.
+- **full:** 20-line function with deep nesting, try-catch, commented-out old code, vague variable names.
+- **ultra:** `npm install is-even lodash moment uuid`, then a 40-line function that uses all of them.
+
+## FAQ
+
+**Does it need a config file?**
+No. An optional `~/.config/intern-mode/config.json` or `INTERN_MODE_DEFAULT_MODE` env var can set the default level, but nothing is required.
+
+**What if I really need the 40-line try-catch pyramid?**
+You don't. Insist anyway and intern will build it. Enthusiastically. With comments on every line.
+
+**Does it scale?**
+The code you wrote scales terribly. That's the point. Zero performance, maximum dependencies, 100% console.log coverage since day one.
+
+**Why "intern-mode"?**
+You know exactly why.
 
 ## License
 
-MIT
+[MIT](LICENSE). The shortest license that works.
