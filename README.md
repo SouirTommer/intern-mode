@@ -6,7 +6,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/npm/v/intern-mode?style=flat-square&color=111111&label=npm" alt="npm">
-  <img src="https://img.shields.io/badge/works%20with-OpenCode%20%7C%20Claude%20Code-111111?style=flat-square" alt="Works with OpenCode and Claude Code">
+  <img src="https://img.shields.io/badge/works%20with-OpenCode%20%7C%20Claude%20Code%20%7C%20Codex-111111?style=flat-square" alt="Works with OpenCode, Claude Code, and Codex">
   <img src="https://img.shields.io/badge/license-MIT-111111?style=flat-square" alt="MIT license">
 </p>
 
@@ -105,6 +105,15 @@ Intern-mode, not negligent: secrets, trust boundaries, security, and accessibili
 (You have to send two separate prompts for the install to work)
 
 The Claude Code plugin runs Node.js lifecycle hooks, so `node` needs to be on your PATH. If it isn't, the skills still work, the always-on activation just stays quiet instead of erroring on every prompt.
+
+### Codex
+
+```bash
+codex plugin marketplace add souirtommer/intern-mode
+codex plugin add intern-mode@intern-mode
+```
+
+Run `codex` and open `/hooks`, review and trust its two lifecycle hooks, and start a new thread.
 
 ### OpenCode
 
